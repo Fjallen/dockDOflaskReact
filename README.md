@@ -1,3 +1,3 @@
 # Microservices with Docker, Flask, and React
 
-[![Build Status](https://travis-ci.org/fjallen/testdriven-app.svg?branch=master)](https://travis-ci.org/fjallen/testdriven-app)
+[![Build Status](https://travis-ci.org/fjallen/dockDOflaskReact.svg?branch=master)](https://travis-ci.org/fjallen/dockDOflaskReact)
