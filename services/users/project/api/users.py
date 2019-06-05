@@ -88,8 +88,8 @@ class UsersList(Resource):
                 response_object['message'] = f'{email} was added!'
                 return response_object, 201
             else:
-                response_object['message'] = 'Sorry.\
-                 That email already exists.'
+                txt = 'Sorry. That email already exists.'
+                response_object['message'] = txt
                 return response_object, 400
         except exc.IntegrityError:
             db.session.rollback()
