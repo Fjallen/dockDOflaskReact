@@ -20,3 +20,4 @@ script:
   - docker-compose exec users flake8 project
 
 after_script:
+  - docker-compose down
