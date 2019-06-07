@@ -32,7 +32,7 @@ class TestUserModel(BaseTestCase):
         self.assertRaises(IntegrityError, db.session.commit)
 
     def test_add_user_duplicate_email(self):
-        add_user('justatest', 'test@test.com','bob')
+        add_user('justatest', 'test@test.com', 'bob')
         duplicate_user = User(
             username='justatest2',
             email='test@test.com',

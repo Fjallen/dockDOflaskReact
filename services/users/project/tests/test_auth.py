@@ -216,7 +216,6 @@ class TestAuthBlueprint(BaseTestCase):
                 data['message'] == 'Invalid token. Please log in again.')
             self.assertEqual(response.status_code, 401)
 
-
     def test_user_status(self):
         add_user('test', 'test@test.com', 'test')
         with self.client:

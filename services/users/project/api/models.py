@@ -42,9 +42,9 @@ class User(db.Model):
                     days=current_app.config.get('TOKEN_EXPIRATION_DAYS'),
                     seconds=current_app.config.get('TOKEN_EXPIRATION_SECONDS')
                     ),
-                    'iat': datetime.datetime.utcnow(),
-                    'sub': user_id
-                    }
+                'iat': datetime.datetime.utcnow(),
+                'sub': user_id
+                }
             return jwt.encode(
                 payload,
                 current_app.config.get('SECRET_KEY'),
@@ -66,4 +66,3 @@ class User(db.Model):
             return 'Signature expired. Please log in again.'
         except jwt.InvalidTokenError:
             return 'Invalid token. Please log in again.'
-            
