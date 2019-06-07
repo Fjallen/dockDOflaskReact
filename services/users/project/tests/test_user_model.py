@@ -14,7 +14,7 @@ from project.tests.utils import add_user
 class TestUserModel(BaseTestCase):
 
     def test_add_user(self):
-        user = add_user('justatest', 'test@test.com','bob')
+        user = add_user('justatest', 'test@test.com', 'bob')
         self.assertTrue(user.id)
         self.assertEqual(user.username, 'justatest')
         self.assertEqual(user.email, 'test@test.com')
@@ -42,7 +42,7 @@ class TestUserModel(BaseTestCase):
         self.assertRaises(IntegrityError, db.session.commit)
 
     def test_to_json(self):
-        user = add_user('justatest', 'test@test.com','bob')
+        user = add_user('justatest', 'test@test.com', 'bob')
         self.assertTrue(isinstance(user.to_json(), dict))
 
     def test_passwords_are_random(self):

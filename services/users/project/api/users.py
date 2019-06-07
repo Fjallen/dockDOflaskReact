@@ -87,8 +87,8 @@ class UsersList(Resource):
             user = User.query.filter_by(email=email).first()
             if not user:
                 db.session.add(User(
-                username=username, email=email, password=password)
-                )
+                    username=username, email=email, password=password)
+                    )
                 db.session.commit()
                 response_object['status'] = 'success'
                 response_object['message'] = f'{email} was added!'
@@ -100,7 +100,7 @@ class UsersList(Resource):
         except (exc.IntegrityError, ValueError):
             db.session.rollback()
             return response_object, 400
-        
+
 
 api.add_resource(UsersPing, '/users/ping')
 api.add_resource(Users, '/users/<user_id>')

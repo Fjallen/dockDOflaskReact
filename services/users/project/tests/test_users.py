@@ -71,7 +71,8 @@ class TestUserService(BaseTestCase):
         with self.client:
             response = self.client.post(
                 '/users',
-                data=json.dumps({'email': 'michael@mherman.org','password':'bob'}),
+                data=json.dumps({'email': 'michael@mherman.org',
+                'password': 'bob'}),
                 content_type='application/json',
             )
             data = json.loads(response.data.decode())
@@ -107,7 +108,7 @@ class TestUserService(BaseTestCase):
 
     def test_single_user(self):
         """Ensure get single user behaves correctly."""
-        user = add_user('michael', 'michael@mherman.org','bob')
+        user = add_user('michael', 'michael@mherman.org', 'bob')
         with self.client:
             response = self.client.get(f'/users/{user.id}')
             data = json.loads(response.data.decode())
@@ -136,8 +137,8 @@ class TestUserService(BaseTestCase):
 
     def test_all_users(self):
         """Ensure get all users behaves correctly."""
-        add_user('michael', 'michael@mherman.org','bob')
-        add_user('fletcher', 'fletcher@notreal.com','bob')
+        add_user('michael', 'michael@mherman.org', 'bob')
+        add_user('fletcher', 'fletcher@notreal.com', 'bob')
         with self.client:
             response = self.client.get('/users')
             data = json.loads(response.data.decode())
@@ -162,8 +163,8 @@ class TestUserService(BaseTestCase):
     def test_main_with_users(self):
         """Ensure the main route behaves correctly when users have been
         added to the database."""
-        add_user('michael', 'michael@mherman.org','bob')
-        add_user('fletcher', 'fletcher@notreal.com','bob')
+        add_user('michael', 'michael@mherman.org', 'bob')
+        add_user('fletcher', 'fletcher@notreal.com', 'bob')
         with self.client:
             response = self.client.get('/')
             self.assertEqual(response.status_code, 200)
@@ -180,8 +181,8 @@ class TestUserService(BaseTestCase):
             response = self.client.post(
                 '/',
                 data={'username': 'michael',
-                'email': 'michael@sonotreal.com',
-                'password': 'bob'},
+                    'email': 'michael@sonotreal.com',
+                    'password': 'bob'},
                 follow_redirects=True
             )
             self.assertEqual(response.status_code, 200)
